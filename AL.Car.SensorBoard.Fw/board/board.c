@@ -46,6 +46,30 @@ byte get_pb3_in()
 	return 1;
 }
 
+void pb4_in_enable()
+{
+	setbit(DDRB,4,0);
+	setbit(PORTB,4,0);
+}
+
+byte get_pb4_in()
+{
+	if (getbit(PINB,4)) {return 1;}
+	return 0;
+}
+
+void pb5_in_enable()
+{
+	setbit(DDRB,5,0);
+	setbit(PORTB,5,1);
+}
+
+byte get_pb5_in()
+{
+	if (getbit(PINB,5)==0) {return 1;}
+	return 0;
+}
+
 void set_board_green_led (byte state)
 {
 	setbit(DDRB,2,1);
