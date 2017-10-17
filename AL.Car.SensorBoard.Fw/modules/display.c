@@ -3,6 +3,16 @@
 float	_climate_humidity_0 = 0;
 float	_climate_temperature_0 = 0;
 
+void show_message_on_display(char *message)
+{
+	uart_send_string(1,"\r\r\r"); //Полная очистка
+	_delay_ms(100);
+	string_clear();
+	string_add_string(message);
+	string_add_string("\r");
+	uart_send_string(1,string_buffer);
+}
+
 void show_all_data_on_display(int _duration)
 {
 	static int index=0;
