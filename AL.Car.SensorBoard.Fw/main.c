@@ -117,7 +117,7 @@ void measured_spd_imp_1s()
 			return;
 		}
 	}
-	spd_count_imp_1s=spd_count_imp_1s/SPEED_CORRECTION;
+	//spd_count_imp_1s=spd_count_imp_1s/SPEED_CORRECTION;
 	if (spd_count_imp_1s<1)
 	{
 		speed=1;
@@ -131,9 +131,9 @@ void show_data_on_display()
 	string_clear();
 	string_add_float(inj_width_high,1);
 	string_add_string(";");
-	string_add_float(fuel_rate_ml_s,2);
+	string_add_float(inj_sum_high,2);
 	string_add_string(";");
-	string_add_int(speed);
+	string_add_int(spd_count_imp_1s);
 	string_add_string("kmh ");
 	string_move_to_new();
 	if (speed>1)
